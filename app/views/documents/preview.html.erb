@@ -1,0 +1,13 @@
+<h1>Document Preview: <%= @document.name %></h1>
+
+<div class="document-preview">
+  <% if @document.file.content_type.start_with?('image') %>
+    <%= image_tag @document.file.url, class: 'preview-image' %>
+  <% elsif @document.file.content_type == 'application/pdf' %>
+    <embed src="<%= @document.file.url %>" type="application/pdf" width="100%" height="600px" />
+  <% elsif @document.file.content_type.start_with?('text') %>
+    <pre><%= File.read(@document.file.path) %></pre>
+  <% else %>
+    <p>Preview not available for this file type. <%= link_to 'Download', @document.file.url %></p>
+  <% end %>
+</div>

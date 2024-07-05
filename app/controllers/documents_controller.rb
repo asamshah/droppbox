@@ -52,7 +52,7 @@ class DocumentsController < ApplicationController
 
   def shared
     @document = Document.find_by!(share_token: params[:share_token])
-    render :show
+    render :preview
   end
 
   private

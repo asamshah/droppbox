@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_05_194624) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_05_201510) do
   create_table "documents", force: :cascade do |t|
     t.string "name"
     t.string "file"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_05_194624) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "share_token"
+    t.string "content_type"
     t.index ["share_token"], name: "index_documents_on_share_token", unique: true
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
